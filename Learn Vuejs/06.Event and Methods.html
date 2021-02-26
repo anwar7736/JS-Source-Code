@@ -1,0 +1,70 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="vuejs.png"><title>Event and Methods </title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vue.js"></script>
+    <style type="text/css">
+    	.bar-enter-active, .bar-leave-active{
+    	transition: margin-left 0.5s;
+    } 
+    .bar-enter, .bar-leave-to{
+    	 margin-left: -550px;
+    }
+
+    </style>
+</head>
+<body class="bg-secondary text-light">
+	<div id="demo" class="container mt-4">
+		<ul class="list-unstyled">
+				<li>
+					<input type="text" v-model="newItem">
+					<button @click="addNewItem()">Submit</button> <p>{{newItem}}</p>
+					<button @click="reverse()">Reverse</button><br><br>
+				</li>
+				<transition-group name="bar">
+					<li v-for="(skill,i) in skills " :key='i'>
+						{{i+1}}. {{skill}} <button class="mb-2" @click="pop(i)">x</button>
+					</li>
+				</transition-group>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el : '#demo',
+			data : {
+				 newItem : "",
+				 date : new Date(),
+				skills :
+				
+					["HTML","CSS","JS","Java"],
+			},
+			methods : {
+				addNewItem : function(){
+					if(this.newItem!=''){
+					this.skills.push(this.newItem);
+					this.newItem = '';
+				}
+				},
+				reverse : function(){
+					this.newItem = this.newItem.split('').reverse('').join('')
+				},
+				bdFormat : function(d){
+					this.date = d.getUTCDate() + '-0' + (d.getUTCMonth()+1) + d.getUTCFullYear();	
+				},
+				pop : function(i){
+						this.skills.splice(i,1);
+				}
+			}
+	
+
+		})
+	</script>
+</body>
+</html>

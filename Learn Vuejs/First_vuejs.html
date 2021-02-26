@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="vuejs.png"><title>First Vuejs</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+   	<link rel="stylesheet" type="text/css" href="style.css">
+   </style>
+</head>
+<body class="bg-secondary">
+	
+	<div id="demo">
+		<button @click="seen = true" class="btn btn-info">Show Modal</button>
+		<modal v-if="seen" @close="seen = false">
+			<template>
+					<h1>Modal Body</h1>
+			
+			</template>
+			<template>
+						<table>
+							<tr>
+								<td><strong>Username </strong></td>
+								<td><input type="text"><br></td>
+							</tr><br><br>
+							<tr>
+								<td><strong>Password </strong></td>
+								<td><input type="password"><br><br></td>
+							</tr>
+							<tr>
+								<td><input type="submit" value="Login" class="btn btn-info"><br><br></td>
+							</tr>
+						</table>
+						
+						
+						
+						
+					 	It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+	    	
+			</template>
+		</modal>
+	</div>
+		
+	
+	<script type="text/javascript">
+		Vue.component("modal", {
+			template : `
+				<div class="modal is-active">
+	  <div class="modal-background"></div>
+	  <div class="modal-content">
+	    <div class="box">
+
+	    	<slot></slot>
+	    </div>
+	  </div>
+	  <button class="modal-close" @click="$emit('close')" title="Close"></button>
+	</div>
+				
+				`,
+
+		});
+		var app = new Vue({
+			el : '#demo',
+			data : {
+					seen : false,
+				}
+
+		})
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="vuejs.png"><title> Conditional List Rendering</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vue.js"></script>
+   </style>
+</head>
+<body class="bg-secondary text-light">
+	<div id="demo" class="container mt-4">
+		<ul class="list-unstyled">
+			<li v-for="skill,i in skills" v-if="skill.level<3">
+				{{i+1}}. {{skill.name}} ({{skill.level}})
+			<li>
+		</ul>
+		<span v-if="seen">Good Morning!</span>
+		<span v-else>Good Night!</span>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el : '#demo',
+			data : {
+				skills :
+				[
+				{name : "HTML", level : 4},
+				{name : "CSS", level : 3},
+				{name : "JS", level : 2},
+				{name : "PHP", level : 3},
+				{name : "Python", level : 1},
+				],
+				seen : false,
+			},
+
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temperature Converter</title>
+</head>
+<body>
+<form onSubmit = 'return false' action="">
+<input type="text" id="input" placeholder="Enter any centigrade">
+<button onclick="display()">To Fahrenheit!</button>
+
+<input type="reset" value="Clear">
+</form>
+<p id="result"></p>
+	
+    <script>
+          function display(){
+          var centigrade = document.getElementById("input").value;
+          if(centigrade!=""){
+          var ToFahrenheit = 1.8 * centigrade + 32;
+          document.getElementById("result").innerHTML = ToFahrenheit;
+          }
+          }
+    </script>
+</body>
+</html> 

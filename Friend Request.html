@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>বন্ধুত্ব</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-dark">
+<div class="container mt-2 text-light">
+	<p>তুমি কি আমার বন্ধু হবে?</p>
+	<button class="btn btn-success" id="yes">হ্যা</button>
+	<button class="btn btn-danger ml-5" id="no">না</button><br><br>
+     <p id="message"></p>
+</div>
+<script>
+	$(document).ready(function(){
+      $('#yes').click(function(){
+      	alert('তুমি এখন থেকে আমরা খুব ভালো বন্ধু ।');
+      	/*$('#message').html('<div class="text-success"><b><marquee>এখন থেকে আমরা খুব ভালো বন্ধু । </marquee></b></div>');*/
+      });
+      $('#no').click(function(){
+      	alert('তুমি চাইলেই আমরা খুব ভালো বন্ধু হতে পারতাম ।');
+      	/*$('#message').html('<div class="text-danger"><b><marquee>তুমি চাইলেই আমরা খুব ভালো বন্ধু হতে পারতাম । </marquee></b></div>');*/
+      });
+    });
+</script>
+</body>
+</html>
